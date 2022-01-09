@@ -5,7 +5,7 @@ from time import sleep
 import sys
 
 EARNAPP_TOKEN = environ.get("EARNAPP_TOKEN")
-SLEEP_TIME = environ.get("SLEEP_TIME", 60)
+SLEEP_TIME = int(environ.get("SLEEP_TIME", 60))
 PORT = int(environ.get("PORT", 8000))
 
 
