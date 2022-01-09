@@ -1,0 +1,8 @@
+version: "3.3"
+services:
+  app:
+    image: derhenning/earnapp-metrics:latest
+    environment: 
+      - EARNAPP_TOKEN=              ## oauth-refresh-token
+      - SLEEP_TIME=                 ## Time between refreshs in seconds, default 60s
+      - PORT=                       ## Port for metrics server, default 8000
