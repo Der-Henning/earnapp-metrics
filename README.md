@@ -1,8 +1,8 @@
 [![Publish multi-arch Docker images](https://github.com/Der-Henning/earnapp-metrics/actions/workflows/docker-multi-arch.yml/badge.svg?branch=main)](https://github.com/Der-Henning/earnapp-metrics/actions/workflows/docker-multi-arch.yml)
 
-# earnapp Metrics
+# earnApp Metrics
 
-Prometheus Metrics Server for earnapp
+Prometheus Metrics Server for [earnApp.com](https://earnapp.com/i/73zzlxi)
 
 Based on [fazalfarhan01/EarnApp-API](https://github.com/fazalfarhan01/EarnApp-API)
 
