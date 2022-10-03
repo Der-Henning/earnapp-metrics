@@ -1,5 +1,5 @@
 certifi==2021.10.8
-charset-normalizer==2.0.10
+charset-normalizer==2.1.1
 idna==3.3
 prometheus-client==0.12.0
 pyEarnapp==0.0.15.3
