@@ -1,3 +1,4 @@
+import logging
 from prometheus_client import start_http_server, Gauge, Info
 from pyEarnapp import EarnApp
 from os import environ
@@ -8,6 +9,14 @@ EARNAPP_TOKEN = environ.get("EARNAPP_TOKEN")
 SLEEP_TIME = int(environ.get("SLEEP_TIME", 60))
 PORT = int(environ.get("PORT", 8000))
 
+logging.basicConfig(
+    format='%(asctime)s %(levelname)-8s %(message)s',
+    level=logging.INFO,
+    datefmt='%Y-%m-%d %H:%M:%S',
+    handlers=[
+        logging.StreamHandler()
+    ])
+log = logging.getLogger('server')
 
 def main():
     start_http_server(PORT)
@@ -65,11 +74,16 @@ def main():
                 earnapp_device_info.labels(device.uuid).info(
                     {"country": device.country, "device_type": device.device_type}
                 )
-        except:
-            print(sys.exc_info())
-        finally:
-            sleep(SLEEP_TIME)
+        except KeyboardInterrupt as exc:
+            raise exc
+        except Exception as exc:
+            log.error(exc)
+        sleep(SLEEP_TIME)
 
 
 if __name__ == "__main__":
-    main()
+    try:
+        main()
+    except KeyboardInterrupt:
+        log.info("Shutting down ...")
+        exit(0)
